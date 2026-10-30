@@ -366,6 +366,24 @@ ul.task-list input[type="checkbox"] {
   }
 }
 
+// Visitor counter line at the bottom of every page
+.visitor-counter {
+  margin: 2.5rem 0 2rem;
+  text-align: center;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: var(--global-text-color-light);
+
+  span {
+    color: inherit;
+  }
+
+  .visitor-counter-sep {
+    margin: 0 0.5rem;
+    opacity: 0.6;
+  }
+}
+
 // Section headings on the about page: theme-coloured accent bar on the left
 .about-page article > h2 {
   margin-top: 3.5rem;
