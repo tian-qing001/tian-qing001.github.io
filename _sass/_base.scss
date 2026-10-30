@@ -421,12 +421,6 @@ ul.task-list input[type="checkbox"] {
   }
 }
 
-// "Resume (PDF)" link sitting right after the CV page title
-.post-title .cv-pdf {
-  font-size: inherit;
-  color: var(--global-theme-color);
-}
-
 @media (max-width: 600px) {
   // Page titles and section spacing shrink a little on phones
   .post-title {
