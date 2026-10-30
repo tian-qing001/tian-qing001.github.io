@@ -491,14 +491,20 @@ ul.task-list input[type="checkbox"] {
     }
   }
 
-  // Publications: preview stacks above the text and is capped in width
+  // Publications: badge and preview share one column width so their edges line up
   .publications ol.bibliography li {
     .abbr {
+      width: 100%;
+      max-width: 240px;
+      margin-left: auto;
+      margin-right: auto;
       padding-right: 0;
+      padding-left: 0;
       text-align: center;
     }
 
     .preview {
+      width: 100%;
       max-width: 240px;
       margin-left: auto;
       margin-right: auto;
