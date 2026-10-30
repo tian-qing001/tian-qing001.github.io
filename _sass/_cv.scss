@@ -157,19 +157,27 @@ span.cv-when {
 }
 
 @media (max-width: 600px) {
+  // On phones the logo goes above the entry instead of squeezing the text
+  div.cv-row {
+    flex-direction: column;
+  }
+
   div.cv-left {
-    flex: 0 0 104px;
-    max-width: 104px;
+    flex: 0 0 auto;
+    max-width: 100%;
     padding-right: 0;
+    margin-bottom: 0.5rem;
+    text-align: left;
   }
 
   img.cv-logo {
     width: 84px;
     height: 44px;
+    margin: 0;
   }
 
   div.cv-left + div.cv-main {
-    padding-left: 1rem;
+    padding-left: 0;
   }
 }
 
