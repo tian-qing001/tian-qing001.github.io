@@ -1,0 +1,16 @@
+<table class="honors-table">
+  <tbody>
+    {% for honor in site.data.honors %}
+      <tr>
+        <th class="honor-year" scope="row">{{ honor.year }}</th>
+        <td class="honor-items">
+          <ul>
+            {% for item in honor.items %}
+              <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

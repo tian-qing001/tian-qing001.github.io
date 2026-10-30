@@ -1,0 +1,1 @@
+{% if page.cv_pdf %}&nbsp;<a class="cv-pdf" href="{% if page.cv_pdf contains '://' %}{{ page.cv_pdf }}{% else %}{{ page.cv_pdf | prepend: 'assets/pdf/' | relative_url }}{% endif %}" target="_blank" rel="noopener noreferrer" title="Download CV as PDF">(PDF)</a>{% endif %}

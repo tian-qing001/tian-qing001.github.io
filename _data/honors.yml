@@ -1,0 +1,29 @@
+# Honors and awards, newest year first.
+# Rendered on the about page by _includes/honors.liquid.
+- year: 2026
+  items:
+    - CVPR 2026 Best Paper Finalist · 15 of 16,092 submissions
+    - National Scholarship · 国家奖学金
+- year: 2025
+  items:
+    - National Scholarship · 国家奖学金
+- year: 2023
+  items:
+    - Outstanding Graduate of Tsinghua University · 清华大学优秀毕业生
+    - Outstanding Graduate of Beijing Municipality · 北京市优秀毕业生
+    - Outstanding Undergraduate Thesis, Tsinghua University · 清华大学优秀本科毕业论文
+    - Future Scholar Scholarship, Tsinghua University · 清华大学未来学者奖学金
+- year: 2022
+  items:
+    - SenseTime Scholarship · 商汤奖学金
+    - Jiang Nanxiang Scholarship · 蒋南翔奖学金
+    - Outstanding Student Cadre of Tsinghua University · 清华大学优秀学生干部
+- year: 2021
+  items:
+    - Jiang Nanxiang Scholarship · 蒋南翔奖学金
+- year: 2020
+  items:
+    - National Scholarship · 国家奖学金
+- year: 2019
+  items:
+    - Second-Class Freshman Scholarship, Tsinghua University · 清华大学新生二等奖学金（高考全省前 10 名）

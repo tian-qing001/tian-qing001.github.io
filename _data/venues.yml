@@ -1,0 +1,17 @@
+# Publication venue badges.
+#
+# All venues intentionally share ONE color: the site theme color
+# (--global-theme-color, see _sass/_themes.scss), purple in light mode and cyan
+# in dark mode. Do NOT add per-venue `color:` values here.
+#
+# Optional fields, only if a single venue really needs to stand out:
+#   color: "#RRGGBB"      -> give that one venue its own color
+#   url:   "https://..."  -> make the badge a link
+"CVPR":
+"ICCV":
+"ECCV":
+"NeurIPS":
+"ICML":
+"AAAI":
+"ICLR":
+"arXiv":

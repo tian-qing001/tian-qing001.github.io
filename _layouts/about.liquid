@@ -1,0 +1,137 @@
+---
+layout: default
+---
+<div class="post about-page">
+  <header class="post-header about-header">
+    {% if page.profile.image %}
+      <div class="about-portrait">
+        {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
+        {% if page.profile.image_circular %}
+          {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
+        {% else %}
+          {% assign profile_image_class = 'img-fluid z-depth-1 rounded' %}
+        {% endif %}
+        {%
+          include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes="(max-width: 600px) 112px, 150px"
+          alt=page.profile.image_alt width=401 height=500 cache_bust=true
+        %}
+      </div>
+    {% endif %}
+    <div class="about-identity">
+      <h1 class="post-title">
+        {% if site.title == 'blank' %}
+          <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }}
+          {{ site.last_name }}
+        {% else %}
+          {{ site.title }}
+        {% endif %}
+      </h1>
+      {% if page.subtitle %}
+        <p class="desc">{{ page.subtitle }}</p>
+      {% endif %}
+      {% if page.profile.more_info %}
+        <div class="about-contact">{{ page.profile.more_info }}</div>
+      {% endif %}
+      {% if page.social %}
+        <div class="social about-social">
+          <div class="contact-icons">{% include social.liquid %}</div>
+        </div>
+      {% endif %}
+    </div>
+  </header>
+
+  <article>
+    <div class="about-introduction">{{ content }}</div>
+
+    <!-- News -->
+    {% if page.announcements and page.announcements.enabled %}
+      <h2>
+        <a href="{{ '/news/' | relative_url }}" style="color: inherit">News</a>
+      </h2>
+      {% include news.liquid limit=true %}
+    {% endif %}
+
+    <!-- Latest posts -->
+    {% if page.latest_posts and page.latest_posts.enabled %}
+      <h2>
+        <a href="{{ '/blog/' | relative_url }}" style="color: inherit">Latest Posts</a>
+      </h2>
+      {% include latest_posts.liquid %}
+    {% endif %}
+
+    <!-- Selected papers -->
+    {% if page.selected_papers %}
+      <h2>
+        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">Selected Publications</a>
+      </h2>
+      <div class="pub-filters" role="group" aria-label="Filter publications by research topic">
+        <button type="button" class="pub-filter is-active" data-filter="all">
+          All <span class="pub-filter-count"></span>
+        </button>
+        <button type="button" class="pub-filter" data-filter="ttt">
+          Test-Time Training <span class="pub-filter-count"></span>
+        </button>
+        <button type="button" class="pub-filter" data-filter="attention">
+          Efficient Attention <span class="pub-filter-count"></span>
+        </button>
+        <button type="button" class="pub-filter" data-filter="architecture">
+          Macro Architecture <span class="pub-filter-count"></span>
+        </button>
+        <button type="button" class="pub-filter" data-filter="mllm">
+          MLLM <span class="pub-filter-count"></span>
+        </button>
+      </div>
+      <div id="selected-publications">
+        {% include selected_papers.liquid %}
+      </div>
+      <script>
+        (function () {
+          const root = document.getElementById("selected-publications");
+          if (!root) return;
+          const buttons = document.querySelectorAll(".pub-filter");
+          const items = Array.from(root.querySelectorAll("li"));
+
+          const categoryOf = (li) => {
+            const holder = li.querySelector("[data-category]");
+            return holder ? holder.getAttribute("data-category") : "";
+          };
+
+          // Fill in the per-topic counts so they stay in sync with the bibliography
+          buttons.forEach((btn) => {
+            const filter = btn.getAttribute("data-filter");
+            const count =
+              filter === "all" ? items.length : items.filter((li) => categoryOf(li) === filter).length;
+            const slot = btn.querySelector(".pub-filter-count");
+            if (slot) slot.textContent = "(" + count + ")";
+          });
+
+          buttons.forEach((btn) => {
+            btn.addEventListener("click", () => {
+              const filter = btn.getAttribute("data-filter");
+              buttons.forEach((b) => b.classList.toggle("is-active", b === btn));
+              items.forEach((li) => {
+                li.style.display = filter === "all" || categoryOf(li) === filter ? "" : "none";
+              });
+            });
+          });
+        })();
+      </script>
+    {% endif %}
+
+    <!-- Internship experience (same data and layout as the CV page) -->
+    {% assign internship = site.data.cv | where: 'title', 'Internship Experience' | first %}
+    {% if internship %}
+      <h2>Internship Experience</h2>
+      {% assign entry = internship %}
+      {% include cv/time_table.liquid %}
+    {% endif %}
+
+    <!-- Honors and awards -->
+    <h2>Honors and Awards</h2>
+    {% include honors.liquid %}
+
+    {% if site.newsletter and site.newsletter.enabled and site.footer_fixed %}
+      {% include newsletter.liquid center=true %}
+    {% endif %}
+  </article>
+</div>

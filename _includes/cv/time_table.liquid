@@ -1,0 +1,108 @@
+{% assign section_has_logo = false %}
+{% for item in entry.contents %}
+  {% if item.icon %}{% assign section_has_logo = true %}{% endif %}
+{% endfor %}
+<ul class="card-text font-weight-light list-group list-group-flush">
+  {% for content in entry.contents %}
+    <li class="list-group-item cv-item">
+      <div class="cv-row">
+        {% if section_has_logo %}
+          <div class="cv-left">
+            {% if content.icon %}
+              <img
+                class="cv-logo"
+                src="{{ content.icon | prepend: 'assets/img/institutions/' | relative_url }}"
+                alt="{{ content.institution | default: '' }}"
+                loading="lazy"
+              >
+            {% endif %}
+          </div>
+        {% endif %}
+        <div class="cv-main">
+          <div class="cv-head">
+            {% if content.title %}
+              <h6 class="title font-weight-bold">{{ content.title }}</h6>
+            {% endif %}
+            {% if content.year %}
+              <span class="cv-when">{{ content.year | replace: ' - ', ' – ' }}</span>
+            {% endif %}
+          </div>
+          {% if content.department or content.institution %}
+            <table class="table-cv institution">
+              <tbody>
+                {% if content.institution %}
+                  <tr>
+                    <td class="institution">{{ content.institution }}</td>
+                  </tr>
+                {% endif %}
+                {% if content.department %}
+                  <tr>
+                    <td class="department">{{ content.department }}</td>
+                  </tr>
+                {% endif %}
+              </tbody>
+            </table>
+          {% endif %}
+          {% if content.maindescription %}
+            <div>{{ content.maindescription }}</div>
+          {% endif %}
+          {% if content.description %}
+            <ul class="items">
+              {% for item in content.description %}
+                <li>
+                  {% if item.contents %}
+                    <span class="item-title">{{ item.title }}</span>
+                    <ul class="subitems">
+                      {% for subitem in item.contents %}
+                        <li>
+                          <span class="subitem">{{ subitem }}</span>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  {% else %}
+                    <span class="item">{{ item }}</span>
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+          {% if content.items %}
+            <ul class="items">
+              {% for item in content.items %}
+                <li>
+                  {% if item.contents %}
+                    <span class="item-title">{{ item.title }}</span>
+                    <ul class="subitems">
+                      {% for subitem in item.contents %}
+                        <li>
+                          <span class="subitem">{{ subitem }}</span>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  {% else %}
+                    <span class="item">{{ item }}</span>
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+          {% if content.linkitems %}
+            <div class="container-links">
+              {% for item in content.linkitems %}
+                {% if item.link %}
+                  <div class="container-link-button">
+                    {% if item.linkname %}
+                      <a href="{{ item.link }}" target="_blank" class="btncv z-depth-0">{{ item.linkname }}</a>
+                    {% else %}
+                      <a href="{{ item.link }}" target="_blank" class="btncv z-depth-0">doc</a>
+                    {% endif %}
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </li>
+  {% endfor %}
+</ul>

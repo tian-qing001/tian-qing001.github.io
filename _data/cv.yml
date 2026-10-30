@@ -1,0 +1,63 @@
+- title: General Information
+  type: map
+  contents:
+    - name: Full Name
+      value: Dongchen Han (韩东辰)
+    - name: Email
+      value: '<a href="mailto:hdc23@mails.tsinghua.edu.cn">hdc23@mails.tsinghua.edu.cn</a>'
+    - name: Affiliation
+      value: Department of Automation, Tsinghua University
+    - name: Advisor
+      value: '<a href="http://www.gaohuang.net/">Prof. Gao Huang</a>, LeapLab'
+
+- title: Education
+  type: time_table
+  contents:
+    - title: Ph.D. Student in Control Science and Engineering
+      institution: Tsinghua University, Beijing, China
+      icon: tsinghua.png
+      year: 2023.09 - Present
+      description:
+        - 'Advisor: <a href="http://www.gaohuang.net/">Prof. Gao Huang</a>'
+        - Research on efficient and scalable architecture design, with a focus on test-time training, sequence modeling, context scaling, and continual learning.
+    - title: B.Eng. in Automation
+      institution: Tsinghua University, Beijing, China
+      icon: tsinghua.png
+      year: 2019.09 - 2023.07
+      description:
+        - "GPA: 3.98 / 4.00"
+        - "Class rank: 2 / 176 in the department"
+    - title: National College Entrance Examination (Gaokao)
+      institution: Shaanxi Province, China
+      year: 2019
+      description:
+        - Ranked 6th in the province.
+
+- title: Internship Experience
+  type: time_table
+  contents:
+    - title: Top Seed Intern
+      institution: ByteDance Seed
+      icon: bytedance.png
+      year: 2026.01 - Present
+      description:
+        - Research on large language model architectures, focusing on context scaling and continual learning.
+    - title: Research Intern
+      institution: Alibaba Future Life Lab
+      icon: alibaba.png
+      year: 2024.05 - 2025.12
+      description:
+        - Research on advanced efficient sequence modeling mechanisms.
+
+- title: Service
+  type: time_table
+  contents:
+    - title: Reviewer
+      institution: CVPR, NeurIPS, ICCV, ECCV, AAAI, etc.
+      year: 2024.11 - Present
+    - title: Chairman
+      institution: Student Association for Science and Technology, Department of Automation, Tsinghua University
+      year: 2022.05 - 2023.05
+    - title: Committee Member
+      institution: Youth League Committee, Department of Automation, Tsinghua University
+      year: 2022.05 - 2023.05
