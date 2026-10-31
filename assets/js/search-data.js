@@ -458,6 +458,20 @@ ninja.data = [{
           window.open("https://twitter.com/DongchenHan_THU", "_blank");
         },
       },{
+        id: 'social-bilibili_url',
+        title: 'Bilibili_url',
+        section: 'Socials',
+        handler: () => {
+          window.open("", "_blank");
+        },
+      },{
+        id: 'social-xiaohongshu',
+        title: 'Xiaohongshu',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://www.xiaohongshu.com/user/profile/63de20130000000026004768", "_blank");
+        },
+      },{
         id: 'social-rss',
         title: 'RSS Feed',
         section: 'Socials',
